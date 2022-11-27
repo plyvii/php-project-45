@@ -3,5 +3,12 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 use Brain\Games\Even;
-$playerName = Even\greeting();
-print_r(Even\isEven($playerName));
+use Brain\Games\Engine;
+$playerName = Engine\greeting();
+$question = function() {
+    return rand(1, 100);
+};
+$correctAnswer = function($question) {
+    return (($question % 2 !== 0) ? 'no' : 'yes');
+ };
+print_r(Even\isEven($playerName, $question, $correctAnswer));

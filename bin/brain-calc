@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+use Brain\Games\Calc;
+use Brain\Games\Engine;
+$playerName = Engine\greeting();
+
+$question = function() {
+    $operand1 = rand(1, 100);
+    $operand2 = rand(1, 100);
+    $operator = ['+', '-', '*'];
+    $keyRandOperator = array_rand($operator);
+    $randOperator = $operator[$keyRandOperator];
+    return $operand1 . ' ' . $randOperator . ' ' . $operand2;
+};
+
+$correctAnswer = function ($questionString){
+    $explodedString = explode(' ', $questionString);
+    $operand1 = (int) $explodedString[0];
+    $operand2 = (int) $explodedString[2];
+    $operator = $explodedString[1];
+    $correctAnswer = 0;
+    if ($operator == '+') {
+        $correctAnswer = $operand1 + $operand2;  
+    } elseif ($operator == '-') {
+        $correctAnswer = $operand1 - $operand2;
+    } else {
+        $correctAnswer = $operand1 * $operand2;
+    }
+    return (string) $correctAnswer;
+};
+
+print_r(Calc\calculation($playerName, $question, $correctAnswer));
