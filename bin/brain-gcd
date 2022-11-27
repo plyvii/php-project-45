@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+use Brain\Games\Gcd;
+use Brain\Games\Engine;
+$playerName = Engine\greeting();
+
+$question = function() {
+    $operand1 = rand(1, 100);
+    $operand2 = rand(1, 100);
+    return $operand1 . ' ' . $operand2;
+};
+
+$correctAnswer = function ($questionString){
+    $explodedString = explode(' ', $questionString);
+    $operand1 = (int) $explodedString[0];
+    $operand2 = (int) $explodedString[1];
+    return (string) gmp_gcd($operand1, $operand2);
+};
+
+print_r(Gcd\greatestCommonDivisor($playerName, $question, $correctAnswer));
