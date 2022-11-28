@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+use Brain\Games\Progression;
+use Brain\Games\Engine;
+$playerName = Engine\greeting();
+
+$question = function() {
+    $fullProgression = [];
+    $step = rand(1, 20);
+    $firstNumber = rand(1, 50);
+    $currentNumber = 0;
+    $numbersCount = rand(5, 10);
+    for ($i = 1; $i <= $numbersCount; $i++) {
+        $currentNumber = $firstNumber + $step * $i;
+        array_push($fullProgression, $currentNumber);
+    };
+    $numberOfTheMissingItem = rand(1, $numbersCount);
+    $fullProgression[$numberOfTheMissingItem] = '..';
+    $stringFullProgression = implode(' ', $fullProgression);
+    return $stringFullProgression;
+};
+
+$correctAnswer = function ($questionString){
+    $missingItem = 0;
+    $explodedString = explode(' ', $questionString);
+    $keyOfTheMissingItem = array_search('..', $explodedString);
+    if ($keyOfTheMissingItem > 1) {
+        $step = $explodedString[1] - $explodedString[0];
+        $missingItem = $explodedString[$keyOfTheMissingItem - 1] + $step;
+    } else {
+        $step = $explodedString[$keyOfTheMissingItem +2] - $explodedString[$keyOfTheMissingItem +1];
+        $missingItem = $explodedString[$keyOfTheMissingItem + 1] - $step;
+    };
+    return (string) $missingItem;
+};
+
+print_r(Progression\progression($playerName, $question, $correctAnswer));
