@@ -13,7 +13,7 @@ function greeting(): string
     return $name;
 }
 
-function someGame(string $playerName, string $condition, callable $question, callable $correctAnswer) : void
+function someGame(string $playerName, string $condition, callable $question, callable $correctAnswer): void
 {
     $correctAnswersCount = 3;
     $success = true;
