@@ -15,3 +15,6 @@ https://asciinema.org/a/HrRpMzblHOYqruKrwzOuq1TVo
 
 make brain-gcd: starting the game to find the greatest common divisor of given numbers
 https://asciinema.org/a/baz4CUhGosaCaUilMze3pJUAM
+
+make brain-progression: starting the game to find a number is missing in a progression
+https://asciinema.org/a/WAh0R6vjeZWGDSLcKU1EEmTxO
