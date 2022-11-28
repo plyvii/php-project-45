@@ -16,7 +16,21 @@ $correctAnswer = function ($questionString){
     $explodedString = explode(' ', $questionString);
     $operand1 = (int) $explodedString[0];
     $operand2 = (int) $explodedString[1];
-    return (string) gmp_gcd($operand1, $operand2);
+    $result = 1;
+    if ($operand1 < $operand2) {
+    for ($i = 1; $i <= $operand1; $i++) {
+		if (($operand1 % $i === 0) && ($operand2 % $i === 0)) {
+			$result = $i;
+		};
+    };
+    } else {
+        for ($i = 1; $i <= $operand2; $i++) {
+            if (($operand1 % $i === 0) && ($operand2 % $i === 0)) {
+                $result = $i;
+            };
+    };
+};
+    return (string) $result;
 };
 
 print_r(Gcd\greatestCommonDivisor($playerName, $question, $correctAnswer));
