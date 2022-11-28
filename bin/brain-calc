@@ -6,7 +6,7 @@ use Brain\Games\Calc;
 use Brain\Games\Engine;
 $playerName = Engine\greeting();
 
-$question = function() : string
+$question = function(): string
 {
     $operand1 = rand(1, 100);
     $operand2 = rand(1, 100);
@@ -16,7 +16,7 @@ $question = function() : string
     return $operand1 . ' ' . $randOperator . ' ' . $operand2;
 };
 
-$correctAnswer = function (string $questionString) : string
+$correctAnswer = function (string $questionString): string
 {
     $explodedString = explode(' ', $questionString);
     $operand1 = (int) $explodedString[0];

@@ -7,12 +7,12 @@ use Brain\Games\Engine;
 
 $playerName = Engine\greeting();
 
-$question = function() : int
+$question = function(): int
 {
     return rand(1, 100);
 };
 
-$correctAnswer = function($question) : string
+$correctAnswer = function($question): string
 {
     return (($question % 2 !== 0) ? 'no' : 'yes');
  };
