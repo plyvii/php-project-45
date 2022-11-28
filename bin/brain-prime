@@ -6,11 +6,13 @@ use Brain\Games\Prime;
 use Brain\Games\Engine;
 $playerName = Engine\greeting();
 
-$question = function() {
+$question = function() : int
+{
     return rand(1, 200);
 };
 
-$correctAnswer = function ($number){
+$correctAnswer = function (int $number) : string
+{
     $result = true;
 	for ($i = 2; $i < $number; $i++) {
 		if ($number % $i === 0) {

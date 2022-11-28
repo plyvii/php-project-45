@@ -6,13 +6,15 @@ use Brain\Games\Gcd;
 use Brain\Games\Engine;
 $playerName = Engine\greeting();
 
-$question = function() {
+$question = function() : string
+{
     $operand1 = rand(1, 100);
     $operand2 = rand(1, 100);
     return $operand1 . ' ' . $operand2;
 };
 
-$correctAnswer = function ($questionString){
+$correctAnswer = function (string $questionString) : string
+{
     $explodedString = explode(' ', $questionString);
     $operand1 = (int) $explodedString[0];
     $operand2 = (int) $explodedString[1];

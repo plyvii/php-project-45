@@ -6,7 +6,8 @@ use Brain\Games\Progression;
 use Brain\Games\Engine;
 $playerName = Engine\greeting();
 
-$question = function() {
+$question = function() : string
+{
     $fullProgression = [];
     $step = rand(1, 20);
     $firstNumber = rand(1, 50);
@@ -22,7 +23,8 @@ $question = function() {
     return $stringFullProgression;
 };
 
-$correctAnswer = function ($questionString){
+$correctAnswer = function (string $questionString) : string
+{
     $missingItem = 0;
     $explodedString = explode(' ', $questionString);
     $keyOfTheMissingItem = array_search('..', $explodedString);

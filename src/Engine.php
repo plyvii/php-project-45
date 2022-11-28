@@ -5,7 +5,7 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function greeting()
+function greeting() : string
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
@@ -13,7 +13,7 @@ function greeting()
     return $name;
 }
 
-function someGame($playerName, $condition, $question, $correctAnswer)
+function someGame(string $playerName, string $condition, callable $question, callable $correctAnswer) : void
 {
     $correctAnswersCount = 3;
     $success = true;
