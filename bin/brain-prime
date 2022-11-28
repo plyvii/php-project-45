@@ -15,6 +15,7 @@ $correctAnswer = function ($number){
 	for ($i = 2; $i < $number; $i++) {
 		if ($number % $i === 0) {
 			$result = false;
+            break;
 		};
     };
     return (($result === false) ? 'no' : 'yes');

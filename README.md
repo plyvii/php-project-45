@@ -6,15 +6,18 @@ Maintainability
 
 Demonstration
 
-make install: executing the command "composer install" using Makefile
-make brain-even: starting the game to determine the parity of a number
+make install: execut the command "composer install" using Makefile
+make brain-even: start the game to determine the parity of a number
 https://asciinema.org/a/wXsRTJk0zEXtKMzLGieH8S00D
 
-make brain-calc: starting the game to calculate the value of an expression
+make brain-calc: start the game to calculate the value of an expression
 https://asciinema.org/a/HrRpMzblHOYqruKrwzOuq1TVo
 
-make brain-gcd: starting the game to find the greatest common divisor of given numbers
+make brain-gcd: start the game to find the greatest common divisor of given numbers
 https://asciinema.org/a/baz4CUhGosaCaUilMze3pJUAM
 
-make brain-progression: starting the game to find a number is missing in a progression
+make brain-progression: start the game to find a number is missing in a progression
 https://asciinema.org/a/WAh0R6vjeZWGDSLcKU1EEmTxO
+
+make brain-prime: start the game to determine if a number is prime
+https://asciinema.org/a/caoNzXN1qW2qJMTUsBAZD6xl1
