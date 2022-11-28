@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+use Brain\Games\Prime;
+use Brain\Games\Engine;
+$playerName = Engine\greeting();
+
+$question = function() {
+    return rand(1, 200);
+};
+
+$correctAnswer = function ($number){
+    $result = true;
+	for ($i = 2; $i < $number; $i++) {
+		if ($number % $i === 0) {
+			$result = false;
+		};
+    };
+    return (($result === false) ? 'no' : 'yes');
+};
+
+print_r(Prime\isPrime($playerName, $question, $correctAnswer));
